@@ -1,10 +1,50 @@
-<div class="jumbotron">
-  <div class='index-content text-center'>
-    <h1 class='home-index'>レシピを共有しよう!</h1>
+<% if user_signed_in? %>
+<div class="topPage">
+  <div class="listWrapper mt-5">
+    <% @lists.each do |list| %>
+      <div class="list">
+        <div class="list_header">
+          <h2 class="list_header_title"><%= list.program %></h2>
 
-    <div class='index-btn d-flex justify-content-around'>
-      <%= link_to '新規登録', "#", class: "btn btn-success btn-lg" %>
-      <%= link_to 'ログイン', "#", class: "btn btn-success btn-lg" %>
-    </div>
+           <div class="list_header_action">
+
+           <%= link_to content_tag(:i, '', class: 'fas fa-trash'), list, method: :delete, data: { confirm: "#{list.program}を削除して大丈夫ですか？" } %>
+           
+            <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_list_path(list)) %>
+          </div>
+        </div>
+
+        <div class="cardWrapper">
+          <% list.cards.each do |card| %>
+            <%= link_to list_card_path(list, card), class:"cardDetail_link" do %>
+              <div class="card">
+                <h3 class="card_title"><%= card.task %></h3>
+                <% if card.memo.size > 0 %>
+                  <div class="card_detail is-exist"><i class="fas fa-bars"></i></div>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+
+          <div class="addCard">
+            <i class="far fa-plus-square"></i>
+            <%= link_to "さらにカードを追加", new_list_card_path(list), class: "addCard_link" %>
+          </div>
+        </div>
+        
+      </div>
+    <% end %>
   </div>
 </div>
+<% else %>
+<div class="jumbotron">
+    <div class='index-content text-center'>
+      <h1 class='home-index'>レシピを共有しよう!</h1>
+      
+      <div class='index-btn d-flex justify-content-around'>
+        <%= link_to '新規作成', new_user_registration_path, class: "btn btn-success btn-lg" %>
+        <%= link_to 'サインイン', new_user_session_path, class: "btn btn-success btn-lg" %>
+      </div>
+    </div>
+  </div>
+<% end %>
