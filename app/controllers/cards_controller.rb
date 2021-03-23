@@ -23,7 +23,7 @@ class CardsController < ApplicationController
   end
 
   def update
-    if @card.update(card_params)
+    if @card.update(card_update)
       redirect_to :root
     else
       render action: :edit
@@ -36,8 +36,13 @@ class CardsController < ApplicationController
   end
 
   private
+
   def card_params
-    params.require(:card).permit(:title, :memo, :list_id)
+    params.require(:card).permit(:task, :memo).merge(list_id: params[:list_id])
+  end
+
+  def card_update
+    params.require(:card).permit(:task, :memo, :list_id)
   end
 
   def set_card
