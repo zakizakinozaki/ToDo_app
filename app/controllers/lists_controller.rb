@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :authenticate_user!, expect: :index
+  before_action :authenticate_user!, except: [:index]
   before_action :set_list, only: [:edit, :update, :destroy]
 
   def index
