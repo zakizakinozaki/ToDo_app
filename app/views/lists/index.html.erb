@@ -1,7 +1,7 @@
-<% if user_signed_in? %>
 <div class="topPage">
   <div class="listWrapper mt-5">
     <% @lists.each do |list| %>
+    <%# if current_user.id == list.user_id %>
       <div class="list">
         <div class="list_header">
           <h2 class="list_header_title"><%= list.program %></h2>
@@ -33,18 +33,7 @@
         </div>
         
       </div>
+      <%# end %>
     <% end %>
   </div>
 </div>
-<% else %>
-<div class="jumbotron">
-    <div class='index-content text-center'>
-      <h1 class='home-index'>レシピを共有しよう!</h1>
-      
-      <div class='index-btn d-flex justify-content-around'>
-        <%= link_to '新規作成', new_user_registration_path, class: "btn btn-success btn-lg" %>
-        <%= link_to 'サインイン', new_user_session_path, class: "btn btn-success btn-lg" %>
-      </div>
-    </div>
-  </div>
-<% end %>
