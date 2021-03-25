@@ -30,3 +30,93 @@ https://task-helper-34440.herokuapp.com/
 ・タスク管理のドラッグアンドドロップ
 
 # 使用技術
+Ruby/Ruby on Rails
+
+HTML・SCSS
+
+GitHub・GitHubDesktop
+
+VSCode
+
+# ER図
+![image](https://user-images.githubusercontent.com/78135984/112461778-9ee62280-8da3-11eb-83f3-08e9a5368777.png)
+
+
+# DB設計
+
+## usersテーブル
+
+| Column             | Type       | Option                    |
+| ------------------ | ---------- | ------------------------- |
+| nickname           | string     | null :false               |
+| email              | string     | null :false, unique: true |
+| encrypted_password | string     | null :false               |
+
+### Association
+
+- has_many :outputs
+- has_many :questions
+- has_many :comments
+- has_many :lists
+
+## listsテーブル
+
+| Column             | Type       | Option                    |
+| ------------------ | ---------- | ------------------------- |
+| program            | string     | null :false               |
+| user_id           | references | foreign_key :true         |
+
+### Association
+
+- has_many :cards
+- belongs_to :user
+
+## cardsテーブル
+
+| Column             | Type       | Option                    |
+| ------------------ | ---------- | ------------------------- |
+| task               | string     | null :false               |
+| memo               | text       |                           |
+| list_id            | references | foreign_key :true         |
+
+### Association
+
+- belongs_to :list
+
+## outputsテーブル
+
+| Column             | Type       | Option                    |
+| ------------------ | ---------- | ------------------------- |
+| heading            | text       | null :false               |
+| description        | text       | null :false               |
+| user_id            | references | foreign_key :true         |
+
+### Association
+
+- belongs_to :user
+
+## questionsテーブル
+
+| Column             | Type       | Option                    |
+| ------------------ | ---------- | ------------------------- |
+| title              | text       | null :false               |
+| quest              | text       | null :false, unique: true |
+| user_id            | references | foreign_key :true         |
+
+### Association
+
+- has_many :comments
+- belongs_to :user
+
+## commentsテーブル
+
+| Column             | Type       | Option                    |
+| ------------------ | ---------- | ------------------------- |
+| text               | text       | null :false               |
+| user_id            | references | foreign_key :true         |
+| question_id        | references | foreign_key :true         |
+
+### Association
+
+- belongs_to :user
+- belongs_to :question
