@@ -38,11 +38,11 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:card).permit(:task, :memo).merge(list_id: params[:list_id])
+    params.require(:card).permit(:name, :memo).merge(list_id: params[:list_id])
   end
 
   def card_update
-    params.require(:card).permit(:task, :memo, :list_id)
+    params.require(:card).permit(:name, :memo, :list_id)
   end
 
   def set_card

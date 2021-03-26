@@ -5,17 +5,17 @@
         <p class="text-danger">タイトルは1～255文字以内で入力してください</p>
       <% end %>
       <div class="cardeditForm_title">
-        <%= f.label :name %>
+        <%= f.label :タイトルを編集 %>
         <%= f.text_field :name, class: "form-control", placeholder: "カード名" %>
       </div>
       <div class="cardeditForm_memo">
-        <%= f.label :memo %>
+        <%= f.label :メモを編集 %>
         <%= f.text_area :memo, class: "form-control", placeholder: "詳細" %>
       </div>
 
       <div class="cardeditForm_memo">
         <label>リスト名</label>
-        <%= select :card, :list_id, @lists.map{ |l| [l.program, l.id] }, {}, { class: 'form-control' } %>
+        <%= select :card, :list_id, @lists.map{ |l| [l.name, l.id] }, {}, { class: 'form-control' } %>
       </div>
 
       <div class="text-center"><%= f.submit "更新する", class: "submitBtn" %></div>

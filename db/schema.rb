@@ -13,8 +13,9 @@
 ActiveRecord::Schema.define(version: 2021_03_15_073505) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "task", null: false
+    t.string "name", null: false
     t.text "memo"
+    t.integer "position"
     t.bigint "list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -22,7 +23,8 @@ ActiveRecord::Schema.define(version: 2021_03_15_073505) do
   end
 
   create_table "lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "program"
+    t.string "name", null: false
+    t.integer "position"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
