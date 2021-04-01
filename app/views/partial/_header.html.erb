@@ -3,7 +3,7 @@
     <div class="header_menu">
       <p class="header_menu_tag nav-link"><% if user_signed_in? %><%= current_user.nickname %>さん<% end %></p>
       
-      <p class="header_menu_title"><%= link_to "ToDo", root_path, class: "nav-link" %></p>
+      <p class="header_menu_title"><%= link_to "Task", root_path, class: "nav-link" %></p>
         <div class="header_menu_inner">
         <% if user_signed_in? %>
       <p class="header_menu_tag">
