@@ -6,9 +6,9 @@
   </p>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Task</a>
-    <a class="dropdown-item" href="#">Output</a>
-    <a class="dropdown-item" href="#">Question</a>
+    <%= link_to "Task", root_path, class: "dropdown-item" %>
+    <%= link_to "Output", outputs_path, class: "dropdown-item" %>
+    <%= link_to "Question", root_path, class: "dropdown-item" %>
   </div>
       
       <p class="header_menu_title"><%= link_to "Task", root_path, class: "nav-link" %></p>

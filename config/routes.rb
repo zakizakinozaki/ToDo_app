@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :lists do
     resources :cards
   end
+
+  resources :outputs
 end
