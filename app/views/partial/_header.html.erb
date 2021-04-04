@@ -1,7 +1,15 @@
 <header class="header">
   <nav class="nav">
     <div class="header_menu">
-      <p class="header_menu_tag nav-link"><% if user_signed_in? %><%= current_user.nickname %>さん<% end %></p>
+      <p class="dropdown-toggle header_menu_tag nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <%= current_user.nickname %>さん
+  </p>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Task</a>
+    <a class="dropdown-item" href="#">Output</a>
+    <a class="dropdown-item" href="#">Question</a>
+  </div>
       
       <p class="header_menu_title"><%= link_to "Task", root_path, class: "nav-link" %></p>
         <div class="header_menu_inner">
@@ -21,3 +29,5 @@
     </div>
   </nav>
 </header>
+
+  
