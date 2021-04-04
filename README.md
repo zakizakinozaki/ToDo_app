@@ -1,5 +1,5 @@
 # アプリ名
-Study Helper
+Study Labo
 
 # 概要
 プログラミング学習者向けのTrelloの様なタスク管理アプリと学んだ事をアウトプットする機能、学習でつまづいているわからない事などを質問投稿できて他ユーザーは質問に対してコメントで解答ができる、質問投稿機能を作成
@@ -87,7 +87,7 @@ VSCode
 
 | Column             | Type       | Option                    |
 | ------------------ | ---------- | ------------------------- |
-| heading            | text       | null :false               |
+| title              | text       | null :false               |
 | description        | text       | null :false               |
 | user_id            | references | foreign_key :true         |
 
