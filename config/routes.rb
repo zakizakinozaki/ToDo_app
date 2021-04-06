@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :cards
   end
 
+  post 'outputs/attach', to: 'outputs#attach'
   resources :outputs
 end

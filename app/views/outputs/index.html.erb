@@ -1,2 +1,27 @@
 <%= render 'header' %>
+<p id="notice"><%= notice %></p>
 
+<h1>Outputs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @outputs.each do |output| %>
+      <tr>
+        <td><%= output.title %></td>
+        <td><%= link_to 'Show', output %></td>
+        <td><%= link_to 'Edit', edit_output_path(output) %></td>
+        <td><%= link_to 'Destroy', output, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

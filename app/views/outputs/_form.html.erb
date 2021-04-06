@@ -1,15 +1,29 @@
-<div class="listnewPage">
-  <div class="container">
-    <%= form_with model: @output, url: { action: :create }, class: "new_list", local: true do |f| %>
-      <% if @output.errors.any? %>
-        <p class="text-danger">タイトルは1～255文字以内で入力してください</p>
-      <% end %>
-      <%= f.label :タイトル %>
-      <%= f.text_field :title, autofocus: true, class: "form-control listName", placeholder: "タイトル" %>
-      <%= f.label :アウトプット作成 %>
-      <%= f.text_field :description, autofocus: true, class: "form-control listName", placeholder: "本文" %>
-      <div class="text-center"><%= f.submit "作成", class: "submitBtn" %></div>
-      <div class="text-center"><%=link_to '戻る', :back, class:'btn submitBtn'%></div>
+<%= javascript_pack_tag 'output' %>
+
+<%= form_with(model: output, local: true) do |form| %>
+<% if output.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+  <ul>
+    <% article.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
     <% end %>
-  </div>
+  </ul>
 </div>
+<% end %>
+  
+<div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, autofocus: true, class: "form-control listName", placeholder: "タイトル" %>
+</div>
+
+<div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: "editor" %>
+</div>
+
+<div class="actions">
+    <%= form.submit %>
+</div>
+<% end %>
