@@ -2,7 +2,7 @@
 <div class="topPage">
   <div class="listWrapper mt-5">
     <% @lists.each do |list| %>
-    <%# if current_user.id == list.user_id %>
+    <% if current_user.id == list.user_id %>
       <div class="list">
         <div class="list_header">
           <h2 class="list_header_title"><%= list.name %></h2>
@@ -34,7 +34,7 @@
         </div>
         
       </div>
-      <%# end %>
+      <% end %>
     <% end %>
   </div>
 </div>

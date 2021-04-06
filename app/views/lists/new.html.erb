@@ -7,6 +7,7 @@
       <%= f.label :新規リスト作成 %>
       <%= f.text_field :name, autofocus: true, class: "form-control listName", placeholder: "リスト名" %>
       <div class="text-center"><%= f.submit "作成", class: "submitBtn" %></div>
+      <div class="text-center"><%=link_to '戻る', :back, class:'btn submitBtn'%></div>
     <% end %>
   </div>
 </div>
