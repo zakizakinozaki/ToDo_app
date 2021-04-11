@@ -4,3 +4,9 @@
     margin: 100px auto 0;
   }
 }
+
+.text-center{
+  & > a {
+    color: #fff;
+  }
+}

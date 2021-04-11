@@ -6,3 +6,8 @@ ja:
         password: "パスワード"
         password_confirmation: "パスワード確認"
         email: "メールアドレス"
+
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"

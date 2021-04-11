@@ -58,3 +58,7 @@ gem 'devise'
 gem 'pry-rails'
 
 gem 'acts_as_list'
+
+gem 'redcarpet', '~> 2.3.0'
+
+gem 'coderay'

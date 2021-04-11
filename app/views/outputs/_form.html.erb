@@ -14,16 +14,16 @@
 <% end %>
   
 <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title, "タイトル" %>
     <%= form.text_field :title, autofocus: true, class: "form-control listName", placeholder: "タイトル" %>
 </div>
 
 <div class="field">
-    <%= form.label :description %>
+    <%= form.label :description, "本文" %>
     <%= form.text_area :description, id: "editor" %>
 </div>
 
 <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "更新", class: "submitBtn" %>
 </div>
 <% end %>

@@ -1,0 +1,30 @@
+.content-title{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.contents{
+  margin: 60px auto 0;
+  max-width: 600px;
+  &_btnArea {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    text-align: center;
+    & > a {
+      color: #fff;
+      display: block;
+      &.edit_btn {
+        margin-top: 20px;
+        background: blue;
+        &:hover {
+          opacity: .7;
+        }
+      }
+      &.delete_btn {
+        margin-top: 20px;
+        background: red;
+      }
+    }
+  }
+}
