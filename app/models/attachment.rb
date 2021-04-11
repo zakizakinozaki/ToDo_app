@@ -3,7 +3,7 @@ class Attachment < ApplicationRecord
 
   def image_compressed
     if image.attached?
-      image.variant(resize_to_fit: [700, 600]).processed
+      image.variant(resize_to_fit: [200, 200]).processed
     end
   end
 end

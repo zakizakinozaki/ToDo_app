@@ -5,15 +5,13 @@ import SimpleMDE from "simplemde";
 import Rails from '@rails/ujs'
 
 window.onload = function () {
-  // textareaをMarkdownエディタにする
   const simplemde = new SimpleMDE({
     element: document.getElementById("editor"),
   });
-  // エディタに画像がドラッグ&ドロップされた際の処理
   inlineAttachment.editors.codemirror4.attach(simplemde.codemirror, {
-    uploadUrl: "/outputs/attach", // POSTする宛先Url
-    uploadFieldName: "image", // ファイルのフィールド名(paramsで取り出す時のkey)
+    uploadUrl: "/outputs/attach", 
+    uploadFieldName: "image", 
     allowedTypes: ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'],
-    extraHeaders: { "X-CSRF-Token": Rails.csrfToken() }, // CSRF対策
+    extraHeaders: { "X-CSRF-Token": Rails.csrfToken() },
   });
 };

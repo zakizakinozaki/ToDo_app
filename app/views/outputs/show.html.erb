@@ -11,6 +11,7 @@
 <p>
   <%= markdown(@output.description).html_safe %>
 </p>
+<hr>
 <div class="contents_btnArea">
         <%= link_to '削除する', output_path(@output), class: "delete_btn btn submitBtn", method: :delete, data: { confirm: "このカードを削除して大丈夫ですか?" } %>
 
