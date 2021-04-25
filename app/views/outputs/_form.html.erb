@@ -1,18 +1,20 @@
 <%= javascript_pack_tag 'output' %>
 
-<%= form_with(model: output, local: true) do |form| %>
+<%= form_with(model: output, local: true) do |f| %>
+
+<%= render 'devise/shared/error_messages', model: f.object %>
   
 <div class="field">
-    <%= form.label :title, "タイトル" %>
-    <%= form.text_field :title, autofocus: true, class: "form-control listName", placeholder: "タイトル" %>
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title, autofocus: true, class: "form-control listName", placeholder: "タイトル" %>
 </div>
 
 <div class="field">
-    <%= form.label :description, "本文" %>
-    <%= form.text_area :description, { id: "editor" } %>
+    <%= f.label :description, "本文" %>
+    <%= f.text_area :description, { id: "editor" } %>
 </div>
 
 <div class="actions">
-    <%= form.submit "投稿", class: "submitBtn" %>
+    <%= f.submit "投稿", class: "submitBtn" %>
 </div>
 <% end %>
